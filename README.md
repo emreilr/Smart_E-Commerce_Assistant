@@ -54,6 +54,34 @@ The fine-tuning process follows industry best practices for model robustness:
 
 ---
 
+## 🏗️ Architecture & API Integration
+
+### 1. Backend: FastAPI (Port 8000)
+The backend is a high-performance **FastAPI** application that serves the fine-tuned LLM.
+- **Endpoint:** `POST http://127.0.0.1:8000/analiz-et`
+- **Model Loading:** Loads the **Trendyol-LLM-7b** base model and **LoRA adapters** into GPU memory using 4-bit quantization on startup.
+- **Request Format:**
+  ```json
+  {
+    "yorum": "Ürün harika ancak kargo çok yavaştı."
+  }
+  ```
+- **Response Format:**
+  ```json
+  {
+    "duygu": "Pozitif",
+    "niyet": "Kargo/Teslimat",
+    "analiz_sonucu": "..."
+  }
+  ```
+
+### 2. Frontend: React + Vite (Port 5173)
+The user interface is built with **React** for a responsive experience.
+- Communicates with the backend via **Axios**.
+- **Real-time Analysis:** Sends user input to the API and displays the Sentiment (Color-coded) and Intent.
+
+---
+
 ## 📂 Project Structure
 
 ```bash
