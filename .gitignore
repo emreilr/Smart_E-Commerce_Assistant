@@ -1,0 +1,8 @@
+venv/
+degerlendirme_sonuclari/
+check_setup.py
+check_trl_args.py
+inspect_trl.py
+sample_prompt.txt
+inspection_result.txt
+inspection_result_v2.txt
